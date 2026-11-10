@@ -179,3 +179,10 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# Dados brutos e bases completas
+Dados/Brutos/
+Dados/Tratados/acidentes_dashboard_2021_2025.csv
+Dados/Tratados/acidentes_prf_2020_2025.parquet
+
+# Arquivos do PyCharm
+.idea/
