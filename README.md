@@ -33,6 +33,27 @@ Foram utilizados os arquivos DATATRAN referentes aos anos de 2020 a 2025.
 A base consolidada contém 406.255 registros e foi utilizada como ponto de partida para as etapas de preparação e análise.
 
 Para garantir maior comparabilidade na análise das causas dos acidentes, as análises comparativas do dashboard consideram o período de 2021 a 2025, devido a diferenças na classificação das causas entre 2020 e 2021.
+Os arquivos foram obtidos em formato CSV no portal de dados abertos da PRF. A coleta contemplou os arquivos DATATRAN de 2020 a 2025, que foram posteriormente carregados e consolidados utilizando Python e Pandas.
+
+
+## Modelagem dos dados
+
+Os arquivos DATATRAN da Polícia Rodoviária Federal, referentes ao período de 2020 a 2025, foram consolidados em uma única base utilizando Python e Pandas.
+
+Durante a preparação dos dados, foram realizadas as seguintes operações:
+
+- Padronização e conversão dos tipos de dados.
+- Conversão da coluna de data e extração de ano, mês e dia.
+- Tratamento de variáveis numéricas e geográficas.
+- Criação de indicadores para identificar acidentes com mortes.
+- Verificação de registros duplicados, valores ausentes e inconsistências.
+- Preservação dos registros inconsistentes, sem alterações arbitrárias.
+
+A base consolidada foi armazenada no formato Parquet, mantendo os dados preparados para as análises exploratórias.
+
+Para a construção do dashboard, foi gerada uma base específica em CSV, considerando o período de 2021 a 2025. Essa delimitação foi adotada para garantir maior comparabilidade nas análises de causas dos acidentes, devido à mudança na classificação entre 2020 e 2021.
+
+Os dados preparados foram utilizados na elaboração das análises exploratórias em Python e posteriormente disponibilizados no Looker Studio para construção das visualizações interativas.
 
 ## Tecnologias utilizadas
 
@@ -68,15 +89,47 @@ Para garantir maior comparabilidade na análise das causas dos acidentes, as an�
 
 ## Principais resultados e observações
 
-As análises realizadas permitiram identificar padrões relevantes:
+A análise dos dados da Polícia Rodoviária Federal (PRF), considerando o período de 2021 a 2025, permitiu identificar padrões importantes relacionados à ocorrência e à gravidade dos acidentes nas rodovias federais brasileiras.
 
-- Minas Gerais, Santa Catarina e Paraná aparecem entre os estados com maior volume de registros de acidentes no período analisado.
-- Os registros apresentam concentração de acidentes nos finais de semana, especialmente aos domingos e sábados.
-- Dezembro apresenta o maior volume de acidentes entre os meses analisados.
-- O período noturno apresenta uma proporção maior de acidentes com mortes em relação ao total de acidentes registrados nesse período.
-- Entre as causas com maior número de mortes estão transitar na contramão, ausência de reação do condutor e reação tardia ou ineficiente.
+### 1. Evolução dos acidentes e mortes
 
-Os resultados representam padrões observados nos registros da PRF e não devem ser interpretados isoladamente como medidas de risco individual, pois não há dados de exposição ao tráfego, como volume de veículos ou distância percorrida.
+- Em 2021, foram registrados 64.567 acidentes e 5.397 mortes.
+- Em 2024, ocorreu o maior volume da série analisada, com 73.202 acidentes e 6.163 mortes.
+- Em 2025, foram registrados 72.529 acidentes e 6.043 mortes.
+- Na comparação entre 2021 e 2025, houve aumento aproximado de 12,3% nos acidentes e de 12% nas mortes.
+
+### 2. Distribuição geográfica
+
+A distribuição dos acidentes e das mortes apresenta diferenças importantes entre as unidades federativas. Os resultados permitem identificar estados com maior concentração de registros e outros que merecem atenção pela gravidade dos acidentes.
+
+### 3. Causas associadas aos acidentes fatais
+
+Entre as causas com maior número de mortes no período, destacam-se:
+
+- Transitar na contramão: 4.163 mortes.
+- Ausência de reação do condutor: 3.257 mortes.
+- Reação tardia ou ineficiente do condutor: 2.845 mortes.
+- Velocidade incompatível: 2.568 mortes.
+- Ultrapassagem indevida: 1.891 mortes.
+
+Esses resultados evidenciam a importância de ações preventivas relacionadas ao comportamento dos condutores e à segurança viária.
+
+### 4. Gravidade dos acidentes
+
+A análise da letalidade identificou causas que, embora apresentem menor volume de registros, possuem elevada proporção de acidentes com mortes. Entre elas, destacam-se o suicídio (presumido), acidentes envolvendo pedestres na pista e entrada inopinada de pedestres na via.
+
+### 5. Distribuição temporal
+
+- Dezembro apresentou o maior número de acidentes e mortes entre os meses analisados.
+- Sábados e domingos concentraram os maiores volumes de acidentes.
+- O horário das 18h apresentou o maior número de acidentes.
+- O horário das 19h registrou o maior número de mortes.
+
+### Considerações gerais
+
+Os resultados mostram que os acidentes rodoviários apresentam padrões temporais, geográficos e comportamentais que podem contribuir para o planejamento de ações preventivas.
+
+As análises devem ser interpretadas considerando as limitações dos registros administrativos da PRF e a ausência de dados de exposição ao trânsito, como volume de veículos e distância percorrida. Portanto, os números absolutos não representam, isoladamente, o risco individual de sofrer um acidente.
 
 ## Qualidade e limitações dos dados
 
